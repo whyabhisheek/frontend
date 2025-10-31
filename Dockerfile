@@ -42,11 +42,11 @@ RUN chown -R reactuser:nodejs /app
 USER reactuser
 
 # Expose port (will be mapped by Dokploy)
-EXPOSE 4000
+EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:4000/ || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
 
 # Start the application using serve
-CMD ["serve", "-s", "dist", "-l", "4000"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
